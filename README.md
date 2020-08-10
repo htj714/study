@@ -117,3 +117,50 @@ public:
 		} 
     }
 };
+	
+	
+文本6：
+class Clearer {
+public:
+    vector<vector<int> > clearZero(vector<vector<int> > mat, int n) {
+        // write code here
+        vector<vector<int> > matT(n);
+        for(int i = 0; i < n; i++)
+        {
+            matT[i].resize(n);
+        }
+        
+        for(int i = 0; i < n; i++)
+        {
+            for(int j = 0; j < n; j++)
+            {
+                if(mat[i][j] == 0)
+                {
+                    //如果出现了零，给标记矩阵做标记
+                    for(int k = 0; k < n; k++)
+                    {
+                        //行
+                        matT[i][k] = 1;
+                        //列
+                        matT[k][j] = 1;
+                    }
+                }
+            }
+        }
+        
+        //清零
+        for(int i = 0; i < n; i++)
+        {
+            for(int j = 0; j < n; j++)
+            {
+                if(matT[i][j] == 1)
+                {
+                    mat[i][j] = 0;
+                }
+            }
+        }
+        return mat;
+    }
+};
+
+文本7：
